@@ -394,7 +394,7 @@ dconf_load:
       name='focus-clipboard-fltk'
 
       [custom6]
-      action='{{ ansible_user_dir }}/.scripts/rofi/rofi.sh'
+      action='{{ ansible_user_dir }}/.config/rofi/rofi.sh'
       binding='<Mod4>space'
       name='rofi'
 
