@@ -360,6 +360,49 @@ dconf_load:
       height=739
       width=1568
 
+  # keyboard shortcuts
+  - dconf_root: "/org/mate/desktop/keybindings/"
+    values_to_write: |
+      [custom0]
+      action="{{ ansible_user_dir }}/.scripts/focus-window-flexible.sh 'ansible - VSCodium'"
+      binding='<Primary><Shift><Alt>a'
+      name='focus-ansible-codium'
+
+      [custom1]
+      action='{{ ansible_user_dir }}/.scripts/focus-window-flexible.sh Signal'
+      binding='<Primary><Shift><Alt>s'
+      name='focus-signal'
+
+      [custom2]
+      action='{{ ansible_user_dir }}/.scripts/focus-window-flexible.sh thunderbird'
+      binding='<Primary><Shift><Alt>e'
+      name='focus-thunderbird'
+
+      [custom3]
+      action='{{ ansible_user_dir }}/.scripts/focus-window-flexible.sh Discord'
+      binding='<Primary><Shift><Alt>d'
+      name='focus-discord'
+
+      [custom4]
+      action='{{ ansible_user_dir }}/.scripts/focus-wmclass-flexible.sh keeweb'
+      binding='disabled'
+      name='focus-keeweb'
+
+      [custom5]
+      action="{{ ansible_user_dir }}/.scripts/focus-window-flexible.sh 'Clipboard Manager FLTK'"
+      binding='<Primary><Shift><Alt>c'
+      name='focus-clipboard-fltk'
+
+      [custom6]
+      action='{{ ansible_user_dir }}/.scripts/rofi/rofi.sh'
+      binding='<Mod4>space'
+      name='rofi'
+
+      [custom7]
+      action='{{ ansible_user_dir }}/.scripts/focus-wmclass-flexible.sh keepassxc'
+      binding='<Primary><Shift><Alt>x'
+      name='focus-keepassxc'
+
   # custom items
   - dconf_root: "/org/mate/"
     values_to_write: "{{ mate_desktop_custom_dconf_values }}"
