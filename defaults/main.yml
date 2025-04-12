@@ -1,0 +1,365 @@
+# SPDX-License-Identifier: MIT-0
+---
+# You can use the following command to obtain your mate configuration:
+#
+# dconf dump /org/mate/ > matedump
+#
+# Then, sift through the contents of matedump and make updates below
+# accordingly.
+
+# You can change the value of mate_desktop_custom_dconf_values on a per-host
+# basis to add keyboard shortcuts, etc.
+#
+# Example:
+#
+#   [desktop/keybindings/custom7]
+#   action='{{ ansible_user_dir }}/scripts/do-something.sh'
+#   binding='<Primary><Shift><Alt>x'
+#   name='do-something'
+mate_desktop_custom_dconf_values: ""
+
+dconf_load:
+  - dconf_root: "/org/mate/desktop/"
+    values_to_write: |
+      [peripherals/keyboard]
+      numlock-state='off'
+
+      [peripherals/mouse]
+      accel-profile='default'
+      cursor-size=24
+      cursor-theme='mate-black'
+
+      [peripherals/touchpad]
+      three-finger-click=0
+      two-finger-click=0
+
+      [session]
+      auto-save-session=false
+      idle-delay=5
+      show-hidden-apps=false
+
+      [sound]
+      event-sounds=false
+      theme-name='__no_sounds'
+
+      [accessibility/keyboard]
+      bouncekeys-beep-reject=true
+      bouncekeys-delay=300
+      bouncekeys-enable=false
+      enable=false
+      feature-state-change-beep=false
+      mousekeys-accel-time=1200
+      mousekeys-enable=false
+      mousekeys-init-delay=160
+      mousekeys-max-speed=750
+      slowkeys-beep-accept=true
+      slowkeys-beep-press=true
+      slowkeys-beep-reject=false
+      slowkeys-delay=300
+      slowkeys-enable=false
+      stickykeys-enable=false
+      stickykeys-latch-to-lock=true
+      stickykeys-modifier-beep=true
+      stickykeys-two-key-off=true
+      timeout=120
+      timeout-enable=false
+      togglekeys-enable=false
+
+      [applications/calculator]
+      exec='mate-calc'
+
+      [applications/terminal]
+      exec='mate-terminal'
+
+      [background]
+      color-shading-type='solid'
+      picture-filename=''
+      picture-options='wallpaper'
+      primary-color='rgb(36,31,49)'
+      secondary-color='rgb(60,143,37)'
+      show-desktop-icons=true
+
+      [interface]
+      document-font-name='Liberation Sans 10'
+      font-name='Liberation Sans 10'
+      gtk-decoration-layout='menu:minimize,maximize,close'
+      gtk-theme='TraditionalOk'
+      icon-theme='mate'
+      monospace-font-name='Liberation Mono 10'
+      window-scaling-factor=1
+
+  - dconf_root: "/org/mate/"
+    values_to_write: |
+      [caja-open-terminal]
+      desktop-opens-home-dir=true
+
+  - dconf_root: "/org/mate/caja/"
+    values_to_write: |
+      [desktop]
+      font='Liberation Sans 10'
+
+      [list-view]
+      default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'date_created', 'octal_permissions', 'owner', 'group', 'extension', 'where', 'mime_type', 'permissions', 'size_on_disk', 'Xattr::Tags']
+      default-visible-columns=['name', 'size', 'type', 'date_modified', 'date_accessed', 'date_created', 'octal_permissions', 'owner', 'group']
+
+      [preferences]
+      always-use-browser=true
+      default-folder-viewer='list-view'
+      default-sort-order='mtime'
+      show-backup-files=true
+      show-hidden-files=true
+
+      [window-state]
+      geometry='952x1026+0+0'
+      maximized=false
+      sidebar-width=200
+      start-with-location-bar=true
+      start-with-sidebar=true
+      start-with-status-bar=true
+      start-with-toolbar=true
+
+  - dconf_root: "/org/mate/calc/"
+    values_to_write: |
+      [/]
+      accuracy=9
+      angle-units='degrees'
+      base=10
+      button-mode='programming'
+      number-format='automatic'
+      show-history=true
+      show-thousands=false
+      show-zeroes=false
+      source-units='degree'
+      target-units='radian'
+      word-size=64
+
+  - dconf_root: "/org/mate/engrampa/"
+    values_to_write: |
+      [general]
+      unar-open-zip=false
+
+      [listing]
+      list-mode='as-folder'
+      name-column-width=250
+      show-path=false
+      sort-method='name'
+      sort-type='ascending'
+
+      [ui]
+      sidebar-width=200
+      window-height=683
+      window-width=660
+
+  - dconf_root: "/org/mate/marco/"
+    values_to_write: |
+      [general]
+      action-double-click-titlebar='toggle_maximize'
+      button-layout='menu:minimize,maximize,close'
+      mouse-button-modifier='<Alt>'
+      num-workspaces=11
+      theme='WinMe'
+      titlebar-font='Liberation Sans Bold 10'
+
+      [global-keybindings]
+      panel-run-dialog='<Mod4>r'
+      run-command-screenshot='Print'
+      run-command-terminal='<Mod4>t'
+      run-command-window-screenshot='disabled'
+      switch-to-workspace-1='<Mod4>1'
+      switch-to-workspace-10='<Mod4>0'
+      switch-to-workspace-2='<Mod4>2'
+      switch-to-workspace-3='<Mod4>3'
+      switch-to-workspace-4='<Mod4>4'
+      switch-to-workspace-5='<Mod4>5'
+      switch-to-workspace-6='<Mod4>6'
+      switch-to-workspace-7='<Mod4>7'
+      switch-to-workspace-8='<Mod4>8'
+      switch-to-workspace-9='<Mod4>9'
+
+      [window-keybindings]
+      close='<Shift><Mod4>c'
+      maximize='<Mod4>Up'
+      move-to-workspace-1='<Shift><Mod4>exclam'
+      move-to-workspace-10='<Shift><Mod4>0'
+      move-to-workspace-2='<Shift><Mod4>at'
+      move-to-workspace-3='<Shift><Mod4>numbersign'
+      move-to-workspace-4='<Shift><Mod4>dollar'
+      move-to-workspace-5='<Shift><Mod4>percent'
+      move-to-workspace-6='<Shift><Mod4>asciicircum'
+      move-to-workspace-7='<Shift><Mod4>ampersand'
+      move-to-workspace-8='<Shift><Mod4>asterisk'
+      move-to-workspace-9='<Shift><Mod4>9'
+      tile-to-side-e='<Mod4>Right'
+      tile-to-side-w='<Mod4>Left'
+      unmaximize='<Mod4>Down'
+
+      [workspace-names]
+      name-1='terminals'
+      name-10='kdbx'
+      name-11='fltk'
+      name-2='code'
+      name-3='browse'
+      name-4='misc'
+      name-5='chat'
+      name-6='misc2'
+      name-7='remmina'
+      name-8='media'
+      name-9='email'
+
+  - dconf_root: "/org/mate/panel/"
+    values_to_write: |
+      [general]
+      object-id-list=['notification-area', 'clock', 'show-desktop', 'window-list', 'workspace-switcher', 'object-0']
+      show-program-list=true
+      toplevel-id-list=['bottom']
+
+      [objects/clock]
+      applet-iid='ClockAppletFactory::ClockApplet'
+      locked=false
+      object-type='applet'
+      panel-right-stick=true
+      position=120
+      toplevel-id='bottom'
+
+      [objects/clock/prefs]
+      show-seconds=true
+      temperature-unit='Fahrenheit'
+
+      [objects/notification-area]
+      applet-iid='NotificationAreaAppletFactory::NotificationArea'
+      locked=false
+      object-type='applet'
+      panel-right-stick=true
+      position=286
+      toplevel-id='bottom'
+
+      [objects/object-0]
+      object-type='menu'
+      panel-right-stick=false
+      position=0
+      tooltip='Compact Menu'
+      toplevel-id='bottom'
+      use-menu-path=false
+
+      [objects/show-desktop]
+      applet-iid='WnckletFactory::ShowDesktopApplet'
+      locked=false
+      object-type='applet'
+      position=24
+      toplevel-id='bottom'
+
+      [objects/window-list]
+      applet-iid='WnckletFactory::WindowListApplet'
+      locked=false
+      object-type='applet'
+      position=48
+      toplevel-id='bottom'
+
+      [objects/workspace-switcher]
+      applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
+      locked=false
+      object-type='applet'
+      panel-right-stick=false
+      position=1445
+      toplevel-id='bottom'
+
+      [objects/workspace-switcher/prefs]
+      display-workspace-names=true
+      num-rows=2
+      wrap-workspaces=false
+
+      [toplevels/bottom]
+      expand=true
+      orientation='bottom'
+      screen=0
+      size=24
+      y=1055
+      y-bottom=0
+
+  - dconf_root: "/org/mate/pluma/"
+    values_to_write: |
+      [/]
+      bottom-panel-size=140
+      side-pane-visible=false
+      side-panel-active-page=-1970755255
+      side-panel-size=200
+      size=(755, 926)
+      state=128
+      statusbar-visible=true
+
+      [plugins/filebrowser/on-load]
+      tree-view=true
+
+  - dconf_root: "/org/mate/terminal/"
+    values_to_write: |
+      [keybindings]
+      help='disabled'
+
+      [profiles/default]
+      background-color='#000000000000'
+      default-show-menubar=false
+      foreground-color='#FFFFFFFFFFFF'
+      palette='#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC'
+      use-theme-colors=false
+      visible-name='Default'
+
+  # general items
+  - dconf_root: "/org/mate/"
+    values_to_write: |
+      [disk-usage-analyzer/ui]
+      active-chart='rings'
+
+      [eom/ui]
+      image-collection=false
+
+      [notification-daemon]
+      do-not-disturb=false
+      popup-location='bottom_right'
+      theme='coco'
+      use-active-monitor=true
+
+      [power-manager]
+      action-critical-battery='shutdown'
+      brightness-ac=37.0
+      button-lid-ac='nothing'
+      button-lid-battery='nothing'
+      button-power='interactive'
+      button-suspend='nothing'
+      info-history-type='charge'
+      info-page-number=0
+      info-stats-type='charge-data'
+      notify-discharging=false
+
+      [screensaver]
+      idle-activation-enabled=false
+      lock-enabled=false
+      mode='blank-only'
+      picture-filename='/usr/share/backgrounds/mate/desktop/Stripes.png'
+      themes=@as []
+
+      [screenshot]
+      border-effect='none'
+      delay=0
+      include-border=true
+      include-pointer=true
+
+      [search-tool]
+      default-window-width=554
+
+      [search-tool/select]
+      contains-the-text=true
+
+      [settings-daemon/plugins/media-keys]
+      home='<Mod4>e'
+      screensaver='<Mod4>l'
+
+      [settings-daemon/plugins/xrandr]
+      show-notification-icon=true
+
+      [system-log]
+      height=739
+      width=1568
+
+  # custom items
+  - dconf_root: "/org/mate/"
+    values_to_write: "{{ mate_desktop_custom_dconf_values }}"

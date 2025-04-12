@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: MIT-0
+---
+- name: Determine if mate desktop is available
+  ansible.builtin.stat:
+    path: /usr/share/xsessions/mate.desktop
+  register: mate_desktop_is_available
+  tags:
+    - mate-desktop
+
+- name: Load dconf from configured dumps
+  ansible.builtin.shell:
+    cmd: |
+      dconf load {{ item.dconf_root }} <<EOF
+      {{ item.values_to_write }}
+      EOF
+  loop: "{{ dconf_load }}"
+  changed_when: result.stdout == ""
+  when:
+    - mate_desktop_is_available.stat.exists
+    - dconf_load is defined
+    - dconf_load | length > 0
+    - item.values_to_write is defined
+    - item.values_to_write | length > 0
+    - item.dconf_root is defined
+  tags:
+    - mate-desktop
+    - dconf-load
