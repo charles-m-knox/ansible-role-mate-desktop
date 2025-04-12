@@ -14,7 +14,8 @@
       {{ item.values_to_write }}
       EOF
   loop: "{{ dconf_load }}"
-  changed_when: result.stdout == ""
+  register: mate_desktop_dconf_load_result
+  changed_when: mate_desktop_dconf_load_result.stdout == ""
   when:
     - mate_desktop_is_available.stat.exists
     - dconf_load is defined
