@@ -73,6 +73,16 @@ tree-view=true
 EOF
 ```
 
+### Power manager example
+
+Still experimenting with this, but `power-manager` can have custom values for display sleep:
+
+```text
+[power-manager]
+sleep-display-ac=1
+sleep-display-battery=1
+```
+
 ## License
 
 MIT

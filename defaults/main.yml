@@ -329,6 +329,7 @@ dconf_load:
       info-page-number=0
       info-stats-type='charge-data'
       notify-discharging=false
+      icon-policy='always'
 
       [screensaver]
       idle-activation-enabled=false
